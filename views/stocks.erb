@@ -1,0 +1,26 @@
+
+<div class="main_txt">
+<h1> Welcome to the Stocks page </h1>
+<form action="stock_query" method="get"> 
+	<input type="text" name="stock"></input>
+	<button>Submit</button>
+</form> 
+
+<% if params.count <= 2 || @found == 0 %> 
+	<p> No Stocks Found yet </p>
+	<% if @found == 0 %>
+		<p> The Stock name entered is incorrect </p>
+	<% end  %> 
+	
+<% else  %> 
+	<p> Found a Stock <p>
+	<p> Company name: <%= @company %></p>
+	<p> Last traded: <%= @last %></p>
+
+
+<% end  %> 
+<hr />
+<p><%= params.count %>:  <%= params %></p>
+	<p> Stock: <%= @stock.inspect %>  </p>
+
+</div>
