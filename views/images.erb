@@ -6,8 +6,11 @@
 	<input type="text" name="image" value="<%=params[:image] unless params[:image].nil? %>"></input>
 	<button>Submit</button>
 </form> 
+<form action="random_image" method="get"> 
+	<button>Random Picture</button>
+</form> 
 
-<% if params.count <= 2  %> 
+<% if params.count <= 2  && params.count != 1 %> 
 	<p> No Images Found yet </p>
 	
 <% else  %> 

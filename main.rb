@@ -41,6 +41,15 @@ get "/Stocks/*" do
 	erb :stocks 
 end
 
+get "/Images/random_image" do
+		words = ["hello", "franky"]
+		params[:image] = "adfasd"
+		random_number = rand(1000) % words.length
+		variable = words[random_number]
+		suckr = ImageSuckr::GoogleSuckr.new   
+		@url = suckr.get_image_url({"q" => "#{variable}"})
+    erb :images
+end
 get "/Images/*" do
 	if params[:image] != nil
 		suckr = ImageSuckr::GoogleSuckr.new   
