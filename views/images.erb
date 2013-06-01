@@ -1,23 +1,29 @@
-
-
 <div class="main_txt">
-<h1> Welcome to the Images page </h1>
-<form action="image_query" method="get"> 
-	<input type="text" name="image" value="<%=params[:image] unless params[:image].nil? %>"></input>
-	<button>Submit</button>
-</form> 
-<form action="random_image" method="get"> 
-	<button>Random Picture</button>
-</form> 
+	<h1> Welcome to the Images page </h1>
+	<table>
+		<tr>
+			<td>
+				<form action="image_query" method="get"> 
+					<input type="text" name="image" value="<%=params[:image] unless params[:image].nil? %>"></input>
+					<button>Submit</button>
+				</form> 
+			</td>
+			<td>
+				<form action="random_image" method="get"> 
+					<button>Random Picture</button>
+				</form> 
+			</td>
+		</tr>
+	</table>
 
-<% if params.count <= 2  && params.count != 1 %> 
-	<p> No Images Found yet </p>
-	
-<% else  %> 
-	<img src="<%= @url %>" width="20%"/> 
+	<% if params.count <= 2  && params.count != 1 %> 
+		<p> No Images Found yet </p>
 
-<% end  %> 
-<hr />
-<p><%= params.count %>:  <%= params %></p>
+	<% else  %> 
+		<img src="<%= @url %>" width="20%"/> 
+
+	<% end  %> 
+	<hr />
+	<p><%= params.count %>:  <%= params %></p>
 
 </div>

@@ -6,9 +6,12 @@ require "stock_quote"
 require "movies"
 
 get "/" do
+	@page = "Home"
 	erb :index
 end
+
 get "/Movies/*" do
+	@page="Movies"
 	@found = 0
 	if params[:film_name] != nil && params[:film_name].to_s.length > 0 
 	 	@my_movie = Movies.find_by_title(params[:film_name]) 
@@ -27,13 +30,16 @@ get "/Movies/*" do
 	end
 	erb :movies
 end
+
 get "/Stocks/*" do
+	@page = "Stocks"
 	if params[:stock] != nil && params[:stock].to_s.length > 0
 		@found = 1
 		begin
 		 @stock = StockQuote::Stock.quote(params[:stock])
 		 @last = @stock.last
 		 @company = @stock.company
+		 @market_cap = @stock.market_cap
 		 @url = "https://www.google.com" + @stock.chart_url
 		rescue 
 			@found = 0
@@ -43,15 +49,18 @@ get "/Stocks/*" do
 end
 
 get "/Images/random_image" do
-		words = ["hello", "franky", "car", "play", "ok", "dude", "max", "me" ]
-		params[:image] = ""
-		random_number = rand(1000) % words.length
-		variable = words[random_number]
-		suckr = ImageSuckr::GoogleSuckr.new   
-		@url = suckr.get_image_url({"q" => "#{variable}"})
-    erb :images
+	@page = "Images"
+	words = ["hello", "franky", "car", "play", "ok", "dude", "max", "me" ]
+	params[:image] = ""
+	random_number = rand(1000) % words.length
+	variable = words[random_number]
+	suckr = ImageSuckr::GoogleSuckr.new   
+	@url = suckr.get_image_url({"q" => "#{variable}"})
+  erb :images
 end
+
 get "/Images/*" do
+	@page = "Images"
 	if params[:image] != nil && params[:image].to_s.length > 0
 		suckr = ImageSuckr::GoogleSuckr.new   
 		variable = params[:image]
