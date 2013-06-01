@@ -38,8 +38,15 @@ get "/Stocks/*" do
 			@found = 0
 		end
 	end
-	erb :stocks end
+	erb :stocks 
+end
+
 get "/Images/*" do
+	if params[:image] != nil
+		suckr = ImageSuckr::GoogleSuckr.new   
+		variable = params[:image]
+		@url = suckr.get_image_url({"q" => "#{variable}"})
+	end
 	erb :images
 end
 
@@ -48,4 +55,27 @@ def get_rating(movie)
 	regex = /[0-9]\.[0-9]/.match(initial)
 	return regex
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
