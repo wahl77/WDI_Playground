@@ -14,8 +14,17 @@
 	
 <% else  %> 
 	<p> Found a Stock <p>
-	<p> Company name: <%= @company %></p>
-	<p> Last traded: <%= @last %></p>
+	<table>
+		<tr>
+			<td>
+				<p> Company name: <%= @company %></p>
+				<p> Last traded: <%= @last %></p>
+			</td>
+			<td>
+				<img src="<%= @url %>" />
+			</td>
+		</tr>
+	</table>
 
 
 <% end  %> 

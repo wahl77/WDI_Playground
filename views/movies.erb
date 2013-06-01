@@ -1,21 +1,29 @@
 
 <div class="main_txt">
-<h1> Welcome to the movies page </h1>
-<form action="movie_query" method="get"> 
-	<input type="text" name="film_name"></input>
-	<button>Submit</button>
-</form> 
-<% if params.count <= 2 || @found == 0 %> 
-	<p> No Movies Found yet </p>
-<% else  %> 
-	<p> Found a movie <p>
-	<p> <img src="<%= @url %>" width="100%" /></p>
-	<p> Movie is <%= @title %>  </p>
-	<p> Director is <%= @director %>  </p>
-	<p> Rating is <%= @rating %>  </p>
-<% end  %> 
-<hr />
-<p><%= params.count %>:  <%= params %></p>
+	<h1> Welcome to the movies page </h1>
+	<form action="movie_query" method="get"> 
+		<input type="text" name="film_name"></input>
+		<button>Submit</button>
+	</form> 
+	<% if params.count <= 2 || @found == 0 %> 
+		<p> No Movies Found yet </p>
+	<% else  %> 
+		<p> Found a movie <p>
+		<table>
+			<tr>
+				<td>
+					<p> Movie is <%= @title %>  </p>
+					<p> Director is <%= @director %>  </p>
+					<p> Rating is <%= @rating %>  </p>
+				</td>
+				<td>
+					<p> <img src="<%= @url %>" width="100%" /></p>
+				</td>
+			</tr>
+		</table>
+	<% end  %> 
+	<hr />
+	<p><%= params.count %>:  <%= params %></p>
 	<p> Movies: <%= @my_movie.inspect %>  </p>
 
 </div>
