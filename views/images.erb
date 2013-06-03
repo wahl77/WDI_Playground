@@ -3,13 +3,13 @@
 	<table>
 		<tr>
 			<td>
-				<form action="image_query" method="get"> 
+				<form action="image_query" method="post"> 
 					<input type="text" name="image" value="<%=params[:image] unless params[:image].nil? %>"></input>
 					<button>Submit</button>
 				</form> 
 			</td>
 			<td>
-				<form action="random_image" method="get"> 
+				<form action="random_image" method="post"> 
 					<button>Random Picture</button>
 				</form> 
 			</td>
