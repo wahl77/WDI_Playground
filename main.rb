@@ -15,8 +15,6 @@ post "/Movies/*" do
 	@found = 0
 	if params[:film_name] != nil && params[:film_name].to_s.length > 0 
 	 	@my_movie = Movies.find_by_title(params[:film_name]) 
-		puts "HEY"
-		puts @my_movie.director 
 		if @my_movie.director != nil 
 			suckr = ImageSuckr::GoogleSuckr.new   
 			@found = 1
@@ -49,8 +47,8 @@ post "/Stocks/*" do
 end
 
 post "/Images/random_image" do
-	@page = "Images"
-	words = ["hello", "franky", "car", "play", "ok", "dude", "max", "me" ]
+	@page = "Image"
+	words = ["hello", "franky", "car", "play", "ok", "dude", "max", "me", "patsy" ]
 	params[:image] = ""
 	random_number = rand(1000) % words.length
 	variable = words[random_number]

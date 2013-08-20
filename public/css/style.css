@@ -1,0 +1,28 @@
+nav.navbar {
+	text-align:center;
+}
+.navbar-inner {
+	width:100%;
+	padding-left:0;
+}
+.navbar ul {
+	display:inline-block !important;
+	float:center !important;
+}
+
+h1{
+	text-align:center;
+}
+.error{
+	text-align: center;
+}
+
+.form-inline input { /* Hack for non-working Bootstrap */
+/*	height: 30px; /**/
+}
+
+#movie_error, 
+#stock_error{
+	color: red;
+	display: none;
+}

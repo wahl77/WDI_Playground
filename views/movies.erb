@@ -1,30 +1,34 @@
+<h1> Welcome to the movies page </h1>
+<hr />
 
-<div class="main_txt">
-	<h1> Welcome to the movies page </h1>
-	<form action="movie_query" method="post"> 
-		<input type="text" name="film_name"></input>
-		<button>Submit</button>
-	</form> 
-	<% if params.count <= 2 || @found == 0 %> 
-		<p> No Movies Found yet </p>
-	<% else  %> 
-		<p> Found a movie <p>
-		<table>
-			<tr>
-				<td>
-					<p> Movie is <%= @title %>  </p>
-					<p> Director is <%= @director %>  </p>
-					<p> Rating is <%= @rating %>  </p>
-				</td>
-				<td>
-					<p> <img src="<%= @url %>" width="100%" /></p>
-				</td>
-			</tr>
-		</table>
-	<% end  %> 
-	<hr />
-	<p><%= params.count %>:  <%= params %></p>
-	<p> Movies: <%= @my_movie.inspect %>  </p>
+<form class="form-inline" action="movie_query" method="post"> 
+	<div class="input-append">
+		<input class="span2" id="movie_name" type="text" name="film_name" placeholder="Movie Name">
+		<button class="btn" type="submit"  id="submit_movie">Go!</button>
+		</input>
+	</div>
+	<span class="help-inline" id="movie_error">No Name Entered</span>
+</form> 
 
-</div>
+<% if params.count <= 2 || @found == 0 %> 
+	<p class="error"> No Movies Found yet </p>
+<% else  %> 
+	<h3> Found a movie </h3>
+
+	<div class="row">
+		<div class="span4">
+
+			<p> Movie is <%= @title %>  </p>
+			<p> Director is <%= @director %>  </p>
+			<p> Rating is <%= @rating %>  </p>
+		</div>
+		<div class="span4">
+			<p> <img src="<%= @url %>" width="100%" /></p>
+		</div>
+	</div>
+<% end  %> 
+<hr />
+<p><%= params.count %>:  <%= params %></p>
+<p> Movies: <%= @my_movie.inspect %>  </p>
+
 

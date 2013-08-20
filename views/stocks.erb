@@ -1,9 +1,13 @@
 
-<div class="main_txt">
 <h1> Welcome to the Stocks page </h1>
-<form action="stock_query" method="post"> 
-	<input type="text" name="stock"></input>
-	<button>Submit</button>
+<hr />
+<form class="form-inline" action="stock_query" method="post"> 
+	<div class="input-append">
+		<input class="span2" id="stock_name" type="text" name="stock" placeholder="Stock Name">
+		<button class="btn" type="submit"  id="submit_stock">Go!</button>
+		</input>
+	</div>
+	<span class="help-inline" id="stock_error">No Stock Entered</span>
 </form> 
 
 <% if params.count <= 2 || @found == 0 %> 
@@ -33,4 +37,3 @@
 <p><%= params.count %>:  <%= params %></p>
 	<p> Stock: <%= @stock.inspect %>  </p>
 
-</div>
